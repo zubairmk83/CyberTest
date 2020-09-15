@@ -1211,7 +1211,6 @@ trust,Internet_General,allow,1.2.89.134,France,untrust,185.136.157.95,185.136.15
 trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,199.93.59.27,199.93.59.27,no,53,udp,3,aged-out,dns
 trust,YMA-youtube-url-allow,allow,1.2.92.10,192.168.0.0-192.168.255.255,untrust,192.168.131.170,192.168.131.170,no,445,tcp,1,aged-out,incomplete
 trust,Internet_OIA,allow,1.2.89.140,United States,untrust,172.217.170.46,172.217.170.46,yes,443,tcp,3,aged-out,google-docs-base
-untrust,interzone-default,deny,41.160.97.50,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,139,tcp,1,policy-deny,not-applicable
 trust,Internet_OIA,allow,1.2.92.33,United States,untrust,172.217.170.70,172.217.170.70,yes,443,tcp,4,aged-out,web-browsing
 trust,Internet_OIA,allow,1.2.92.15,South Africa,untrust,52.98.18.18,52.98.18.18,no,443,tcp,3,tcp-fin,outlook-web-online
 trust,Internet_General,allow,1.2.90.18,Netherlands,untrust,13.69.66.137,13.69.66.137,no,443,tcp,4,tcp-fin,ssl
@@ -1432,7 +1431,6 @@ trust,Internet_OIA,allow,1.2.89.136,South Africa,untrust,52.98.18.50,52.98.18.50
 trust,Internet_General,allow,1.2.92.19,South Africa,untrust,52.98.18.18,52.98.18.18,no,443,tcp,3,tcp-fin,outlook-web-online
 trust,Internet_OIA,allow,1.2.89.141,South Africa,untrust,52.98.18.2,52.98.18.2,no,443,tcp,3,tcp-fin,outlook-web-online
 trust,Internet_HR,allow,1.2.90.18,Netherlands,untrust,13.69.66.137,13.69.66.137,no,443,tcp,4,tcp-fin,ssl
-untrust,interzone-default,deny,41.160.97.50,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,445,tcp,1,policy-deny,not-applicable
 trust,Internet_OIA,allow,1.2.89.143,United States,untrust,23.215.188.248,23.215.188.248,yes,443,tcp,4,aged-out,web-browsing
 trust,Internet_General-failed-id,allow,1.2.90.26,United States,untrust,13.107.246.2,13.107.246.2,no,53,udp,3,aged-out,dns
 trust,LiveUpdate,allow,1.2.92.42,Bahrain,untrust,193.188.108.92,193.188.108.92,yes,443,tcp,4,decrypt-cert-validation,ssl
@@ -1565,7 +1563,6 @@ trust,LiveUpdate,allow,1.2.92.2,Ireland,untrust,20.54.7.166,20.54.7.166,no,443,t
 trust,Internet_Allowed_Apps,allow,1.2.92.35,United States,untrust,34.98.77.231,34.98.77.231,no,443,tcp,1,tcp-rst-from-server,traps-management-service
 trust,LiveUpdate,allow,1.2.91.8,Netherlands,untrust,52.114.74.44,52.114.74.44,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General,allow,1.2.92.8,United States,untrust,35.241.56.184,35.241.56.184,yes,443,tcp,4,aged-out,web-browsing
-untrust,interzone-default,deny,164.90.145.170,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,53413,udp,1,policy-deny,not-applicable
 trust,Internet_OIA,allow,1.2.92.26,United States,untrust,172.217.170.68,172.217.170.68,yes,443,tcp,4,aged-out,google-base
 trust,Internet_General,allow,1.2.92.42,United States,untrust,172.217.19.4,172.217.19.4,yes,443,tcp,4,aged-out,google-base
 trust,Internet_General,allow,1.2.90.25,United States,untrust,199.7.68.1,199.7.68.1,no,53,udp,3,aged-out,dns
@@ -1880,7 +1877,6 @@ trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,23.61.199
 trust,LiveUpdate,allow,1.2.92.24,United States,untrust,104.69.109.236,104.69.109.236,no,443,tcp,4,tcp-rst-from-client,ssl
 trust,YMA-youtube-url-allow,allow,1.2.92.10,South Africa,untrust,196.251.35.120,196.251.35.120,no,7680,tcp,1,tcp-rst-from-server,incomplete
 trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,198.51.44.1,198.51.44.1,no,53,udp,3,aged-out,dns
-untrust,interzone-default,deny,194.61.24.172,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,22,tcp,1,policy-deny,not-applicable
 trust,Internet_General,allow,1.2.89.193,United States,untrust,172.217.170.68,172.217.170.68,no,80,tcp,3,threat,google-update
 trust,LiveUpdate,allow,1.2.89.161,United States,untrust,172.217.170.65,172.217.170.65,no,80,tcp,1,tcp-fin,incomplete
 trust,Internet_General,allow,1.2.92.19,Netherlands,untrust,13.94.251.244,13.94.251.244,no,443,tcp,4,tcp-rst-from-server,ssl
@@ -1940,7 +1936,6 @@ trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,208.80.12
 trust,Internet_General-failed-id,allow,1.2.90.26,United States,untrust,13.107.160.1,13.107.160.1,no,53,udp,3,aged-out,dns
 trust,Internet_General-failed-id,allow,1.2.90.26,European Union,untrust,193.108.88.128,193.108.88.128,no,53,udp,3,aged-out,dns
 trust,Internet_General-failed-id,allow,1.2.90.26,United States,untrust,205.251.194.227,205.251.194.227,no,53,udp,3,aged-out,dns
-untrust,interzone-default,deny,41.160.140.180,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,445,tcp,1,policy-deny,not-applicable
 trust,Internet_General,allow,1.2.89.134,Germany,untrust,49.12.130.235,49.12.130.235,yes,80,tcp,4,decrypt-cert-validation,ssl
 trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,205.251.197.70,205.251.197.70,no,53,udp,3,aged-out,dns
 trust,Internet_General,allow,1.2.90.25,United Kingdom,untrust,91.209.196.50,91.209.196.50,no,53,udp,3,aged-out,dns
@@ -2272,7 +2267,6 @@ trust,Internet_General,allow,1.2.91.8,United States,untrust,35.241.56.184,35.241
 trust,Internet_General,allow,1.2.89.155,United States,untrust,23.215.189.32,23.215.189.32,yes,443,tcp,4,aged-out,web-browsing
 trust,Internet_OIA,allow,1.2.91.8,United States,untrust,172.217.170.78,172.217.170.78,yes,443,tcp,2,aged-out,google-analytics
 trust,Internet_General,allow,1.2.90.25,United States,untrust,129.134.31.11,129.134.31.11,no,53,udp,3,aged-out,dns
-untrust,interzone-default,deny,81.22.26.43,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,80,tcp,1,policy-deny,not-applicable
 trust,Internet_General,allow,1.2.92.16,European Union,untrust,95.101.143.233,95.101.143.233,yes,443,tcp,4,aged-out,web-browsing
 trust,LiveUpdate,allow,1.2.92.16,United Kingdom,untrust,51.11.168.232,51.11.168.232,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_OIA,allow,1.2.91.8,Ireland,untrust,185.60.219.35,185.60.219.35,yes,443,tcp,4,aged-out,facebook-base
@@ -2482,7 +2476,6 @@ trust,LiveUpdate,allow,1.2.89.143,United States,untrust,13.83.151.112,13.83.151.
 trust,Internet_General-failed-id,allow,1.2.92.18,South Africa,untrust,160.119.103.229,160.119.103.229,yes,443,tcp,4,tcp-fin,web-browsing
 trust,LiveUpdate,allow,1.2.92.35,United Kingdom,untrust,51.11.168.232,51.11.168.232,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General,allow,1.2.90.25,South Africa,untrust,196.216.169.10,196.216.169.10,no,53,udp,3,aged-out,dns
-untrust,interzone-default,deny,41.160.128.130,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,8291,tcp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.92.36,United States,untrust,13.83.151.112,13.83.151.112,no,443,tcp,4,tcp-rst-from-client,ssl
 trust,Internet_General,allow,1.2.89.209,United States,untrust,172.217.21.40,172.217.21.40,yes,443,tcp,4,aged-out,web-browsing
 trust,LiveUpdate,allow,1.2.89.130,Ireland,untrust,52.114.76.34,52.114.76.34,no,443,tcp,4,tcp-fin,ssl
@@ -2533,7 +2526,6 @@ trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,131.253.3
 trust,Internet_OIA,allow,1.2.91.8,United States,untrust,108.174.10.10,108.174.10.10,yes,443,tcp,3,aged-out,linkedin-base
 trust,Internet_General,allow,1.2.89.20,United States,untrust,23.215.189.32,23.215.189.32,yes,443,tcp,4,aged-out,web-browsing
 trust,Internet_OIA,allow,1.2.89.141,South Africa,untrust,52.98.18.50,52.98.18.50,no,443,tcp,3,tcp-fin,outlook-web-online
-untrust,interzone-default,deny,41.160.60.189,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,8291,tcp,1,policy-deny,not-applicable
 trust,interzone-default,deny,1.2.131.10,10.0.0.0-10.255.255.255,ra-vpn,10.25.93.155,10.25.93.155,no,135,tcp,1,policy-deny,not-applicable
 trust,Internet_OIA,allow,1.2.92.25,United States,untrust,35.190.88.7,35.190.88.7,yes,443,tcp,4,aged-out,web-browsing
 trust,Blocked_IP_Address_OUT,deny,1.2.90.25,China,untrust,140.205.41.17,140.205.41.17,no,53,udp,1,policy-deny,not-applicable
@@ -2559,11 +2551,9 @@ trust,yma-sprint,allow,1.2.96.15,10.0.0.0-10.255.255.255,sprint,10.254.4.126,10.
 trust,Internet_General,allow,1.2.89.20,United States,untrust,104.126.245.85,104.126.245.85,no,80,tcp,2,tcp-fin,soap
 trust,LiveUpdate,allow,1.2.89.209,Netherlands,untrust,52.114.75.149,52.114.75.149,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,205.251.194.247,205.251.194.247,no,53,udp,3,aged-out,dns
-untrust,interzone-default,deny,41.160.128.130,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,7547,tcp,1,policy-deny,not-applicable
 trust,Internet_General,allow,1.2.89.161,Netherlands,untrust,139.45.196.201,139.45.196.201,yes,443,tcp,4,tcp-fin,web-browsing
 trust,Internet_OIA,allow,1.2.91.8,European Union,untrust,95.100.219.169,95.100.219.169,yes,443,tcp,4,aged-out,web-browsing
 trust,Internet_OIA,allow,1.2.89.140,United States,untrust,34.236.109.12,34.236.109.12,yes,443,tcp,3,tcp-fin,grammarly
-untrust,interzone-default,deny,41.160.60.189,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,7547,tcp,1,policy-deny,not-applicable
 trust,Internet_General-failed-id,allow,1.2.90.25,European Union,untrust,2.22.230.65,2.22.230.65,no,53,udp,3,aged-out,dns
 trust,LiveUpdate,allow,1.2.89.140,Ireland,untrust,52.114.76.34,52.114.76.34,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General-failed-id,allow,1.2.90.26,United States,untrust,192.147.130.168,192.147.130.168,no,53,udp,3,aged-out,dns
@@ -2652,7 +2642,6 @@ trust,LiveUpdate,allow,1.2.89.209,Netherlands,untrust,52.114.75.78,52.114.75.78,
 trust,LiveUpdate,allow,1.2.89.140,Netherlands,untrust,52.114.74.43,52.114.74.43,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,23.61.199.131,23.61.199.131,no,53,udp,3,aged-out,dns
 trust,LiveUpdate,allow,1.2.92.16,South Africa,untrust,41.168.9.224,41.168.9.224,no,80,tcp,4,tcp-fin,ms-update
-untrust,interzone-default,deny,41.160.102.210,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,8291,tcp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.89.149,Ireland,untrust,52.169.82.131,52.169.82.131,no,443,tcp,4,tcp-fin,ssl
 trust,LiveUpdate,allow,1.2.92.8,Netherlands,untrust,52.114.74.43,52.114.74.43,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_OIA,allow,1.2.89.152,South Africa,untrust,52.98.18.18,52.98.18.18,no,443,tcp,3,tcp-fin,outlook-web-online
@@ -2672,18 +2661,14 @@ trust,LiveUpdate,allow,1.2.92.29,United Kingdom,untrust,52.114.92.46,52.114.92.4
 trust,Internet_General-failed-id,allow,1.2.89.154,United States,untrust,173.194.128.135,173.194.128.135,yes,443,tcp,4,aged-out,youtube-streaming
 trust,Internet_General,allow,1.2.92.36,South Africa,untrust,52.98.18.34,52.98.18.34,no,443,tcp,3,tcp-fin,outlook-web-online
 trust,Internet_General-failed-id,allow,1.2.92.19,Ireland,untrust,13.94.102.123,13.94.102.123,no,443,tcp,4,tcp-rst-from-client,ssl
-untrust,interzone-default,deny,41.160.60.189,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,23,tcp,1,policy-deny,not-applicable
-untrust,interzone-default,deny,41.160.102.210,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,23,tcp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.92.19,United States,untrust,52.114.159.35,52.114.159.35,no,443,tcp,4,tcp-rst-from-server,ssl
 trust,LiveUpdate,allow,1.2.92.42,United States,untrust,52.114.128.43,52.114.128.43,no,443,tcp,4,tcp-rst-from-server,ssl
 trust,Blocked_IP_Address_OUT,deny,1.2.90.25,China,untrust,106.11.211.57,106.11.211.57,no,53,udp,1,policy-deny,not-applicable
-untrust,interzone-default,deny,41.160.102.210,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,7547,tcp,1,policy-deny,not-applicable
 trust,Internet_General,allow,1.2.90.25,United States,untrust,204.13.250.23,204.13.250.23,no,53,udp,3,aged-out,dns
 trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,205.251.193.227,205.251.193.227,no,53,udp,3,aged-out,dns
 trust,Internet_General,allow,1.2.89.154,Ireland,untrust,40.126.1.167,40.126.1.167,no,443,tcp,2,tcp-rst-from-client,ms-office365-base
 trust,LiveUpdate,allow,1.2.92.26,Netherlands,untrust,52.114.74.43,52.114.74.43,no,443,tcp,4,tcp-fin,ssl
 trust,LiveUpdate,allow,1.2.92.42,United Kingdom,untrust,51.11.168.232,51.11.168.232,no,443,tcp,4,tcp-fin,ssl
-untrust,Blocked_IP_Address_IN,deny,112.239.25.148,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,23,tcp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.89.158,Netherlands,untrust,13.80.7.77,13.80.7.77,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_OIA,allow,1.2.91.8,European Union,untrust,95.100.217.239,95.100.217.239,no,80,tcp,4,tcp-fin,web-browsing
 trust,LiveUpdate,allow,1.2.92.29,Ireland,untrust,52.114.76.35,52.114.76.35,no,443,tcp,4,tcp-fin,ssl
@@ -2801,7 +2786,6 @@ trust,LiveUpdate-1,allow,1.2.92.46,Netherlands,untrust,52.114.75.79,52.114.75.79
 trust,Internet_General,allow,1.2.92.19,United States,untrust,172.217.170.78,172.217.170.78,yes,443,tcp,4,aged-out,google-base
 trust,Internet_OIA,allow,1.2.89.141,European Union,untrust,2.16.56.158,2.16.56.158,no,443,tcp,3,tcp-rst-from-client,outlook-web-online
 trust,Internet_General,allow,1.2.90.25,United States,untrust,205.251.192.137,205.251.192.137,no,53,udp,3,aged-out,dns
-untrust,interzone-default,deny,41.160.128.130,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,23,tcp,1,policy-deny,not-applicable
 trust,Internet_General,allow,1.2.89.158,South Africa,untrust,41.160.35.141,41.160.35.141,yes,443,tcp,4,tcp-fin,youtube-streaming
 trust,interzone-default,deny,1.2.96.15,10.0.0.0-10.255.255.255,ra-vpn,10.25.93.137,10.25.93.137,no,135,tcp,1,policy-deny,not-applicable
 trust,Internet_General-failed-id,allow,1.2.92.19,Ireland,untrust,13.94.102.123,13.94.102.123,no,443,tcp,4,tcp-rst-from-server,ssl
@@ -2839,7 +2823,6 @@ trust,AnyconnectVPN_FromLAN,allow,1.2.92.8,South Africa,untrust,41.160.46.149,41
 trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,205.251.193.139,205.251.193.139,no,53,udp,3,aged-out,dns
 trust,Internet_General,allow,1.2.89.138,Netherlands,untrust,20.54.213.113,20.54.213.113,no,443,tcp,1,tcp-rst-from-client,windows-defender-atp-endpoint
 trust,Internet_OIA,allow,1.2.92.33,United States,untrust,172.217.170.65,172.217.170.65,yes,443,tcp,4,aged-out,google-base
-untrust,interzone-default,deny,41.93.45.139,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,9090,tcp,1,policy-deny,not-applicable
 trust,Internet_General,allow,1.2.92.16,United States,untrust,152.199.19.160,152.199.19.160,no,443,tcp,1,tcp-fin,windows-azure-base
 trust,Internet_General-failed-id,allow,1.2.90.25,Netherlands,untrust,104.47.4.8,104.47.4.8,no,53,udp,3,aged-out,dns
 trust,Internet_General-failed-id,allow,1.2.89.136,South Africa,untrust,52.98.18.34,52.98.18.34,no,443,tcp,3,tcp-fin,outlook-web-online
@@ -2909,7 +2892,6 @@ trust,LiveUpdate,allow,1.2.92.29,United Kingdom,untrust,52.114.92.50,52.114.92.5
 trust,LiveUpdate,allow,1.2.92.36,European Union,untrust,2.17.204.153,2.17.204.153,no,443,tcp,1,tcp-rst-from-client,incomplete
 trust,Internet_General,allow,1.2.90.25,United States,untrust,172.64.32.102,172.64.32.102,no,53,udp,3,aged-out,dns
 trust,Internet_General,allow,1.2.92.35,South Africa,untrust,52.98.18.50,52.98.18.50,no,443,tcp,3,tcp-fin,outlook-web-online
-untrust,interzone-default,deny,41.160.127.66,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,7547,tcp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.89.209,Netherlands,untrust,137.117.228.253,137.117.228.253,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_OIA,allow,1.2.92.18,United States,untrust,172.217.170.42,172.217.170.42,yes,443,tcp,4,aged-out,google-base
 trust,Internet_OIA,allow,1.2.92.24,Ireland,untrust,40.126.1.143,40.126.1.143,no,443,tcp,2,tcp-rst-from-client,ms-office365-base
@@ -3089,13 +3071,11 @@ trust,LiveUpdate,allow,1.2.92.24,Netherlands,untrust,52.114.75.78,52.114.75.78,n
 trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,208.80.126.13,208.80.126.13,no,53,udp,3,aged-out,dns
 trust,Internet_General-failed-id,allow,1.2.89.129,United States,untrust,172.217.170.46,172.217.170.46,no,80,tcp,3,threat,google-update
 trust,Internet_OIA,allow,1.2.92.26,United States,untrust,216.58.223.142,216.58.223.142,no,443,tcp,3,tcp-fin,google-play
-untrust,interzone-default,deny,41.160.127.66,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,23,tcp,1,policy-deny,not-applicable
 trust,Internet_OIA,allow,1.2.92.33,United States,untrust,38.133.127.63,38.133.127.63,no,443,tcp,4,tcp-rst-from-client,ssl
 trust,YMA-youtube-url-allow,allow,1.2.92.10,South Africa,untrust,197.185.111.157,197.185.111.157,no,7680,tcp,1,aged-out,incomplete
 trust,YMA-youtube-url-allow,allow,1.2.92.10,South Africa,untrust,197.185.119.50,197.185.119.50,no,7680,tcp,1,aged-out,incomplete
 trust,Internet_OIA,allow,1.2.89.152,Ireland,untrust,40.108.160.34,40.108.160.34,no,443,tcp,3,tcp-fin,sharepoint-online
 trust,Internet_General-failed-id,allow,1.2.90.26,United States,untrust,205.251.195.233,205.251.195.233,no,53,udp,3,aged-out,dns
-untrust,interzone-default,deny,41.160.127.66,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,8291,tcp,1,policy-deny,not-applicable
 trust,Internet_OIA,allow,1.2.92.33,South Africa,untrust,52.98.18.34,52.98.18.34,no,443,tcp,3,tcp-fin,outlook-web-online
 trust,LiveUpdate,allow,1.2.89.158,United States,untrust,13.89.202.241,13.89.202.241,no,443,tcp,4,tcp-fin,ssl
 trust,LiveUpdate,allow,1.2.89.155,South Africa,untrust,41.168.9.225,41.168.9.225,no,80,tcp,4,tcp-rst-from-client,ms-update
@@ -3326,7 +3306,6 @@ trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,205.251.1
 trust,LiveUpdate,allow,1.2.89.141,Ireland,untrust,52.114.76.34,52.114.76.34,no,443,tcp,4,tcp-fin,ssl
 trust,interzone-default,deny,1.2.153.15,10.0.0.0-10.255.255.255,ra-vpn,10.25.93.166,10.25.93.166,no,135,tcp,1,policy-deny,not-applicable
 trust,Internet_OIA,allow,1.2.92.10,United States,untrust,23.215.189.32,23.215.189.32,yes,443,tcp,4,tcp-fin,web-browsing
-untrust,interzone-default,deny,192.99.45.33,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,5060,udp,1,policy-deny,not-applicable
 trust,Internet_General-failed-id,allow,1.2.89.141,Ireland,untrust,185.60.219.35,185.60.219.35,yes,443,tcp,4,threat,facebook-base
 trust,Internet_General,allow,1.2.89.155,Ireland,untrust,40.126.1.135,40.126.1.135,no,443,tcp,2,tcp-rst-from-client,ms-office365-base
 trust,Internet_Blocked_Apps,deny,1.2.92.15,United States,untrust,172.217.170.35,172.217.170.35,no,443,udp,1,policy-deny,quic
@@ -3436,7 +3415,6 @@ trust,LiveUpdate,allow,1.2.92.10,Brazil,untrust,52.109.108.43,52.109.108.43,no,4
 trust,Internet_General-failed-id,allow,1.2.92.12,United States,untrust,23.50.173.162,23.50.173.162,yes,443,tcp,4,aged-out,web-browsing
 trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,13.107.24.1,13.107.24.1,no,53,udp,3,aged-out,dns
 trust,LiveUpdate,allow,1.2.89.161,Ireland,untrust,52.114.76.35,52.114.76.35,no,443,tcp,4,tcp-fin,ssl
-untrust,interzone-default,deny,41.160.140.190,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,445,tcp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.92.24,United States,untrust,13.86.246.97,13.86.246.97,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General,allow,1.2.90.25,United States,untrust,208.78.71.23,208.78.71.23,no,53,udp,3,aged-out,dns
 trust,LiveUpdate-1,allow,1.2.92.46,Netherlands,untrust,52.114.75.149,52.114.75.149,no,443,tcp,4,tcp-fin,ssl
@@ -3565,7 +3543,6 @@ trust,LiveUpdate,allow,1.2.89.140,United Kingdom,untrust,51.11.168.232,51.11.168
 trust,Internet_General,allow,1.2.90.25,United States,untrust,205.251.197.15,205.251.197.15,no,53,udp,3,aged-out,dns
 trust,LiveUpdate,allow,1.2.89.209,Brazil,untrust,52.109.108.43,52.109.108.43,no,443,tcp,4,tcp-fin,ssl
 trust,LiveUpdate,allow,1.2.89.152,Brazil,untrust,52.109.108.43,52.109.108.43,no,443,tcp,4,tcp-fin,ssl
-untrust,interzone-default,deny,51.161.12.231,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,8545,tcp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.89.155,United Kingdom,untrust,93.184.221.240,93.184.221.240,no,80,tcp,4,tcp-rst-from-client,ms-update
 trust,Internet_Blocked_Apps,deny,1.2.89.133,United States,untrust,172.217.170.78,172.217.170.78,no,443,udp,1,policy-deny,quic
 trust,Internet_General,allow,1.2.92.29,South Africa,untrust,52.98.18.50,52.98.18.50,no,443,tcp,3,tcp-rst-from-server,outlook-web-online
@@ -3707,7 +3684,6 @@ trust,Internet_General,allow,1.2.90.25,United States,untrust,173.245.58.120,173.
 trust,Internet_General-failed-id,allow,1.2.90.26,Finland,untrust,195.134.224.3,195.134.224.3,no,53,udp,3,aged-out,dns
 trust,yma-sprint,allow,1.2.88.10,10.0.0.0-10.255.255.255,sprint,10.29.71.153,10.29.71.153,no,135,tcp,2,n/a,msrpc-base
 trust,LiveUpdate,allow,1.2.92.8,United States,untrust,52.114.128.43,52.114.128.43,no,443,tcp,4,tcp-fin,ssl
-untrust,interzone-default,deny,37.131.72.9,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,80,tcp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.89.20,United States,untrust,23.76.238.137,23.76.238.137,no,443,tcp,4,tcp-rst-from-client,ssl
 trust,Internet_General,allow,1.2.89.149,United States,untrust,216.58.223.130,216.58.223.130,yes,443,tcp,4,aged-out,google-base
 trust,LiveUpdate,allow,1.2.89.193,United States,untrust,172.217.170.68,172.217.170.68,no,443,tcp,1,tcp-rst-from-client,incomplete
@@ -3870,9 +3846,7 @@ trust,Internet_OIA,allow,1.2.92.26,United States,untrust,172.217.170.67,172.217.
 trust,LiveUpdate,allow,1.2.92.2,Netherlands,untrust,52.114.74.43,52.114.74.43,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_OIA,allow,1.2.92.15,United States,untrust,74.125.206.189,74.125.206.189,yes,443,tcp,4,aged-out,google-hangouts-chat
 trust,LiveUpdate,allow,1.2.89.141,South Africa,untrust,41.168.9.217,41.168.9.217,no,80,tcp,4,tcp-fin,ms-update
-untrust,interzone-default,deny,41.160.65.228,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,445,tcp,1,policy-deny,not-applicable
 trust,LiveUpdate-1,allow,1.2.89.193,United States,untrust,52.224.249.103,52.224.249.103,no,443,tcp,4,tcp-rst-from-client,ssl
-untrust,In-AnyconnectVPN,allow,103.145.13.144,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,443,tcp,1,tcp-rst-from-client,incomplete
 trust,Internet_OIA,allow,1.2.92.25,Ireland,untrust,54.246.85.6,54.246.85.6,no,443,tcp,4,tcp-rst-from-client,ssl
 trust,Internet_General-failed-id,allow,1.2.89.141,United States,untrust,13.107.40.203,13.107.40.203,yes,443,tcp,4,aged-out,web-browsing
 trust,Internet_General,allow,1.2.90.25,United States,untrust,65.22.161.17,65.22.161.17,no,53,udp,3,aged-out,dns
@@ -3920,7 +3894,6 @@ trust,Internet_General-failed-id,allow,1.2.89.167,United States,untrust,13.107.1
 trust,Internet_General-failed-id,allow,1.2.89.209,United States,untrust,172.217.19.2,172.217.19.2,yes,443,tcp,4,threat,web-browsing
 trust,Internet_OIA,allow,1.2.89.152,United States,untrust,13.107.18.11,13.107.18.11,no,443,tcp,3,tcp-rst-from-server,outlook-web-online
 trust,Internet_OIA,allow,1.2.89.141,United Arab Emirates,untrust,52.98.32.2,52.98.32.2,no,443,tcp,3,tcp-fin,outlook-web-online
-untrust,interzone-default,deny,41.160.23.11,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,445,tcp,1,policy-deny,not-applicable
 trust,Internet_General,allow,1.2.90.25,United States,untrust,173.245.59.136,173.245.59.136,no,53,udp,3,aged-out,dns
 trust,Internet_General-failed-id,allow,1.2.89.136,South Africa,untrust,52.98.18.2,52.98.18.2,no,443,tcp,3,tcp-rst-from-client,outlook-web-online
 trust,Internet_OIA,allow,1.2.89.152,South Africa,untrust,52.98.18.18,52.98.18.18,no,443,tcp,3,tcp-rst-from-client,outlook-web-online
@@ -4015,7 +3988,6 @@ trust,LiveUpdate,allow,1.2.89.143,Netherlands,untrust,52.114.75.79,52.114.75.79,
 trust,LiveUpdate,allow,1.2.92.18,United States,untrust,40.122.160.14,40.122.160.14,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General-failed-id,allow,1.2.89.154,South Africa,untrust,52.98.18.50,52.98.18.50,no,443,tcp,3,tcp-fin,outlook-web-online
 trust,LiveUpdate,allow,1.2.92.36,Ireland,untrust,52.114.77.164,52.114.77.164,no,443,tcp,4,tcp-fin,ssl
-untrust,interzone-default,deny,41.160.104.70,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,445,tcp,1,policy-deny,not-applicable
 trust,Internet_Allowed_Apps,allow,1.2.92.33,United States,untrust,34.98.77.231,34.98.77.231,no,443,tcp,1,tcp-rst-from-server,traps-management-service
 trust,Internet_General,allow,1.2.89.138,European Union,untrust,2.17.204.153,2.17.204.153,yes,443,tcp,4,aged-out,web-browsing
 trust,Internet_General,allow,1.2.92.16,United States,untrust,143.204.65.132,143.204.65.132,no,443,tcp,4,tcp-fin,ssl
@@ -4250,7 +4222,6 @@ trust,Internet_OIA,allow,1.2.91.8,European Union,untrust,95.100.216.223,95.100.2
 trust,Internet_General,allow,1.2.89.134,South Africa,untrust,41.168.9.224,41.168.9.224,no,443,tcp,4,tcp-rst-from-client,ssl
 trust,Internet_General-failed-id,allow,1.2.90.25,Finland,untrust,195.134.224.3,195.134.224.3,no,53,udp,3,aged-out,dns
 trust,Internet_General,allow,1.2.92.8,United States,untrust,108.177.15.189,108.177.15.189,yes,443,tcp,4,aged-out,google-hangouts-chat
-untrust,In-AnyconnectVPN,allow,81.22.26.43,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General,allow,1.2.89.158,South Africa,untrust,41.160.35.140,41.160.35.140,yes,443,tcp,4,tcp-fin,youtube-streaming
 trust,LiveUpdate,allow,1.2.92.36,Netherlands,untrust,52.114.74.45,52.114.74.45,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General,allow,1.2.89.161,United States,untrust,172.217.170.2,172.217.170.2,yes,443,tcp,4,threat,web-browsing
@@ -4666,7 +4637,6 @@ trust,Internet_General-failed-id,allow,1.2.89.193,South Africa,untrust,151.101.1
 trust,Internet_OIA,allow,1.2.91.8,United States,untrust,34.224.191.108,34.224.191.108,yes,443,tcp,4,tcp-fin,web-browsing
 trust,Internet_General-failed-id,allow,1.2.89.130,South Africa,untrust,52.98.18.18,52.98.18.18,no,443,tcp,3,tcp-fin,outlook-web-online
 trust,LiveUpdate,allow,1.2.89.154,Ireland,untrust,52.114.76.34,52.114.76.34,no,443,tcp,4,tcp-fin,ssl
-untrust,interzone-default,deny,165.22.32.60,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,53413,udp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.89.167,Netherlands,untrust,52.114.74.43,52.114.74.43,no,443,tcp,4,tcp-fin,ssl
 trust,interzone-default,deny,1.2.131.10,10.0.0.0-10.255.255.255,ra-vpn,10.25.93.145,10.25.93.145,no,135,tcp,1,policy-deny,not-applicable
 trust,Internet_General-failed-id,allow,1.2.89.136,South Africa,untrust,52.98.18.18,52.98.18.18,no,443,tcp,3,tcp-fin,outlook-web-online
@@ -5145,7 +5115,6 @@ trust,Internet_OIA,allow,1.2.89.152,United States,untrust,75.2.53.94,75.2.53.94,
 trust,interzone-default,deny,1.2.90.36,10.0.0.0-10.255.255.255,ra-vpn,10.25.93.161,10.25.93.161,no,56631,tcp,1,policy-deny,not-applicable
 trust,Internet_OIA,allow,1.2.92.33,United States,untrust,23.54.61.109,23.54.61.109,no,80,tcp,4,tcp-fin,web-browsing
 trust,Internet_General,allow,1.2.90.25,United States,untrust,173.245.58.163,173.245.58.163,no,53,udp,3,aged-out,dns
-untrust,interzone-default,deny,187.8.182.21,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,9090,tcp,1,policy-deny,not-applicable
 trust,Internet_General,allow,1.2.92.8,United States,untrust,172.217.170.14,172.217.170.14,yes,443,tcp,3,aged-out,google-hangouts-base
 trust,LiveUpdate,allow,1.2.89.212,Netherlands,untrust,52.114.75.150,52.114.75.150,no,443,tcp,4,tcp-fin,ssl
 trust,interzone-default,deny,1.2.90.36,10.0.0.0-10.255.255.255,ra-vpn,10.25.93.145,10.25.93.145,no,63741,tcp,1,policy-deny,not-applicable
@@ -5434,7 +5403,6 @@ trust,Internet_General,allow,1.2.89.151,Netherlands,untrust,20.54.213.113,20.54.
 trust,Internet_OIA,allow,1.2.89.136,United States,untrust,204.79.197.200,204.79.197.200,no,443,tcp,4,tcp-rst-from-client,ssl
 trust,LiveUpdate,allow,1.2.92.16,Brazil,untrust,52.109.108.43,52.109.108.43,no,443,tcp,4,tcp-rst-from-server,ssl
 trust,LiveUpdate,allow,1.2.92.33,Ireland,untrust,52.114.76.34,52.114.76.34,no,443,tcp,4,tcp-fin,ssl
-untrust,Blocked_IP_Address_IN,deny,124.94.191.22,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,52869,tcp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.89.209,United States,untrust,104.126.254.228,104.126.254.228,no,80,tcp,4,tcp-fin,web-browsing
 trust,Internet_OIA,allow,1.2.91.8,United Arab Emirates,untrust,20.37.65.133,20.37.65.133,yes,443,tcp,1,aged-out,windows-azure-base
 trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,205.251.193.130,205.251.193.130,no,53,udp,3,aged-out,dns
@@ -6037,7 +6005,6 @@ trust,LiveUpdate,allow,1.2.89.20,United States,untrust,52.114.159.22,52.114.159.
 trust,Internet_General-failed-id,allow,1.2.92.31,South Africa,untrust,52.98.18.34,52.98.18.34,no,443,tcp,3,tcp-fin,outlook-web-online
 trust,Internet_General-failed-id,allow,1.2.90.26,South Africa,untrust,196.14.182.147,196.14.182.147,no,53,udp,3,aged-out,dns
 trust,LiveUpdate,allow,1.2.89.167,United States,untrust,52.188.134.88,52.188.134.88,no,443,tcp,4,tcp-rst-from-client,ssl
-untrust,Blocked_IP_Address_IN,deny,112.239.25.148,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,2323,tcp,1,policy-deny,not-applicable
 trust,Internet_OIA,allow,1.2.89.140,United States,untrust,74.125.206.189,74.125.206.189,yes,443,tcp,4,aged-out,google-base
 trust,Internet_General,allow,1.2.92.29,Ireland,untrust,40.126.1.144,40.126.1.144,no,443,tcp,2,tcp-rst-from-client,ms-office365-base
 trust,LiveUpdate-1,allow,1.2.89.149,Netherlands,untrust,52.114.75.150,52.114.75.150,no,443,tcp,4,tcp-fin,ssl
@@ -6268,7 +6235,6 @@ trust,LiveUpdate,allow,1.2.89.193,United States,untrust,172.217.170.34,172.217.1
 trust,Internet_General,allow,1.2.89.209,South Africa,untrust,52.98.18.34,52.98.18.34,no,443,tcp,3,tcp-rst-from-client,outlook-web-online
 trust,LiveUpdate-1,allow,1.2.89.149,Ireland,untrust,52.114.77.164,52.114.77.164,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General,allow,1.2.89.154,United States,untrust,64.74.236.95,64.74.236.95,no,443,tcp,4,tcp-rst-from-client,ssl
-untrust,interzone-default,deny,51.79.35.114,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,60505,udp,1,policy-deny,not-applicable
 trust,YMA-youtube-url-allow,allow,1.2.92.25,192.168.0.0-192.168.255.255,untrust,192.168.130.170,192.168.130.170,no,445,tcp,1,aged-out,incomplete
 trust,Internet_OIA,allow,1.2.89.140,United States,untrust,216.58.223.142,216.58.223.142,yes,443,tcp,5,aged-out,google-drive-web
 trust,Internet_General,allow,1.2.89.209,European Union,untrust,2.17.205.193,2.17.205.193,no,80,tcp,4,tcp-fin,web-browsing
@@ -6542,7 +6508,6 @@ trust,Internet_General-failed-id,allow,1.2.90.26,Ireland,untrust,192.198.151.13,
 trust,LiveUpdate,allow,1.2.89.133,United States,untrust,13.107.6.158,13.107.6.158,no,443,tcp,1,tcp-rst-from-server,non-syn-tcp
 trust,Internet_General,allow,1.2.90.25,United States,untrust,205.251.192.223,205.251.192.223,no,53,udp,3,aged-out,dns
 trust,Internet_General,allow,1.2.90.25,United States,untrust,198.51.45.2,198.51.45.2,no,53,udp,3,aged-out,dns
-untrust,interzone-default,deny,51.79.35.114,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,50260,udp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.89.193,United States,untrust,104.127.121.180,104.127.121.180,no,443,tcp,4,tcp-rst-from-client,ssl
 trust,LiveUpdate,allow,1.2.92.29,United Kingdom,untrust,51.140.157.153,51.140.157.153,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General,allow,1.2.92.29,United States,untrust,23.54.60.24,23.54.60.24,no,443,tcp,4,tcp-rst-from-client,ssl
@@ -6634,7 +6599,6 @@ trust,Internet_General,allow,1.2.89.133,United States,untrust,151.101.194.2,151.
 trust,LiveUpdate,allow,1.2.89.130,United States,untrust,52.188.134.88,52.188.134.88,no,443,tcp,4,tcp-rst-from-client,ssl
 trust,Internet_General,allow,1.2.89.133,Ireland,untrust,20.190.129.1,20.190.129.1,no,443,tcp,2,tcp-fin,ms-office365-base
 trust,Internet_OIA,allow,1.2.92.10,Ireland,untrust,40.126.1.143,40.126.1.143,no,443,tcp,2,tcp-rst-from-client,ms-office365-base
-untrust,In-AnyconnectVPN,allow,37.131.72.9,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_OIA,allow,1.2.91.8,United Kingdom,untrust,212.82.100.177,212.82.100.177,yes,443,tcp,4,aged-out,web-browsing
 trust,Internet_General,allow,1.2.92.8,United States,untrust,52.113.194.132,52.113.194.132,no,443,tcp,4,tcp-rst-from-server,ssl
 trust,LiveUpdate-1,allow,1.2.89.209,United States,untrust,52.114.132.11,52.114.132.11,no,443,tcp,4,tcp-fin,ssl
@@ -6693,7 +6657,6 @@ trust,Internet_General,allow,1.2.90.25,United States,untrust,192.175.48.42,192.1
 trust,LiveUpdate,allow,1.2.89.155,Ireland,untrust,52.169.82.131,52.169.82.131,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_Blocked_Apps,deny,1.2.92.15,United States,untrust,172.217.170.46,172.217.170.46,no,443,udp,1,policy-deny,quic
 trust,LiveUpdate,allow,1.2.89.141,United States,untrust,52.114.133.60,52.114.133.60,no,443,tcp,4,tcp-fin,ssl
-untrust,interzone-default,deny,51.79.35.114,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,60281,udp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.92.26,United States,untrust,40.77.18.167,40.77.18.167,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General,allow,1.2.89.158,South Africa,untrust,151.101.172.157,151.101.172.157,yes,443,tcp,4,threat,web-browsing
 trust,LiveUpdate-1,allow,1.2.89.20,United Kingdom,untrust,51.140.157.153,51.140.157.153,no,443,tcp,4,tcp-fin,ssl
@@ -6738,7 +6701,6 @@ trust,Internet_General,allow,1.2.90.25,United States,untrust,205.251.198.236,205
 trust,Internet_General-failed-id,allow,1.2.92.35,Ireland,untrust,40.126.1.135,40.126.1.135,no,443,tcp,2,tcp-rst-from-client,ms-office365-base
 trust,LiveUpdate,allow,1.2.89.136,United States,untrust,146.66.102.6,146.66.102.6,no,443,tcp,1,aged-out,incomplete
 trust,LiveUpdate,allow,1.2.92.36,Netherlands,untrust,52.114.74.44,52.114.74.44,no,443,tcp,4,tcp-fin,ssl
-untrust,interzone-default,deny,51.79.35.114,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,64795,udp,1,policy-deny,not-applicable
 trust,Internet_General,allow,1.2.92.27,United States,untrust,152.199.19.161,152.199.19.161,no,443,tcp,1,tcp-fin,windows-azure-base
 trust,Internet_General,allow,1.2.89.133,Ireland,untrust,40.126.1.139,40.126.1.139,no,443,tcp,2,tcp-fin,ms-office365-base
 trust,Internet_General,allow,1.2.89.151,United States,untrust,23.51.235.27,23.51.235.27,no,80,tcp,2,tcp-fin,ocsp
@@ -6836,7 +6798,6 @@ trust,Internet_General,allow,1.2.90.25,United States,untrust,8.254.93.27,8.254.9
 trust,LiveUpdate,allow,1.2.89.136,Netherlands,untrust,51.105.218.222,51.105.218.222,no,443,tcp,4,tcp-rst-from-server,ssl
 trust,Internet_General-failed-id,allow,1.2.90.26,South Africa,untrust,196.8.6.130,196.8.6.130,no,53,udp,3,aged-out,dns
 trust,LiveUpdate,allow,1.2.89.154,United States,untrust,173.194.128.231,173.194.128.231,yes,443,tcp,4,tcp-fin,ssl
-untrust,Blocked_IP_Address_IN,deny,180.118.243.242,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,52869,tcp,1,policy-deny,not-applicable
 trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,138.197.192.225,138.197.192.225,no,53,udp,3,aged-out,dns
 trust,Internet_General,allow,1.2.89.158,United States,untrust,104.19.148.8,104.19.148.8,yes,443,tcp,4,aged-out,web-browsing
 trust,LiveUpdate-1,allow,1.2.92.19,Netherlands,untrust,52.114.74.43,52.114.74.43,no,443,tcp,4,tcp-fin,ssl
@@ -6952,7 +6913,6 @@ trust,LiveUpdate-1,allow,1.2.92.46,Ireland,untrust,40.69.222.109,40.69.222.109,n
 trust,LiveUpdate,allow,1.2.89.136,Netherlands,untrust,51.105.218.222,51.105.218.222,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General,allow,1.2.89.133,United Kingdom,untrust,93.184.220.29,93.184.220.29,no,80,tcp,2,tcp-fin,ocsp
 trust,LiveUpdate,allow,1.2.89.140,Netherlands,untrust,52.114.75.150,52.114.75.150,no,443,tcp,4,tcp-fin,ssl
-untrust,Blocked_IP_Address_IN,deny,175.169.85.141,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,52869,tcp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.92.36,Netherlands,untrust,52.113.199.174,52.113.199.174,no,443,tcp,2,tcp-rst-from-server,ms-teams
 trust,LiveUpdate,allow,1.2.92.29,Netherlands,untrust,52.114.75.150,52.114.75.150,no,443,tcp,4,tcp-fin,ssl
 trust,LiveUpdate,allow,1.2.89.209,United States,untrust,52.114.158.91,52.114.158.91,no,443,tcp,4,tcp-fin,ssl
@@ -7128,7 +7088,6 @@ trust,LiveUpdate,allow,1.2.92.5,Ireland,untrust,52.169.82.131,52.169.82.131,no,4
 trust,Internet_General-failed-id,allow,1.2.89.209,France,untrust,185.255.84.152,185.255.84.152,yes,443,tcp,4,aged-out,web-browsing
 trust,LiveUpdate,allow,1.2.89.167,Netherlands,untrust,52.114.74.45,52.114.74.45,no,443,tcp,4,tcp-fin,ssl
 trust,LiveUpdate,allow,1.2.89.155,Ireland,untrust,52.178.192.146,52.178.192.146,no,443,tcp,4,tcp-rst-from-server,ssl
-untrust,interzone-default,deny,41.115.54.155,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,445,tcp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.89.158,Netherlands,untrust,137.117.228.253,137.117.228.253,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,172.64.32.120,172.64.32.120,no,53,udp,3,aged-out,dns
 trust,Internet_General,allow,1.2.89.209,South Africa,untrust,52.98.18.50,52.98.18.50,no,443,tcp,3,tcp-rst-from-client,outlook-web-online
@@ -7175,7 +7134,6 @@ trust,Internet_General,allow,1.2.92.29,United States,untrust,13.107.6.163,13.107
 trust,Internet_General,allow,1.2.92.27,Ireland,untrust,20.190.129.129,20.190.129.129,no,443,tcp,2,tcp-fin,ms-office365-base
 trust,Internet_General-failed-id,allow,1.2.89.141,Netherlands,untrust,20.54.213.113,20.54.213.113,no,443,tcp,1,tcp-rst-from-client,windows-defender-atp-endpoint
 trust,Internet_General,allow,1.2.90.25,United States,untrust,13.107.40.2,13.107.40.2,no,53,udp,3,aged-out,dns
-untrust,Blocked_IP_Address_IN_PAHighrisk,deny,85.209.0.100,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,22,tcp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.92.10,Ireland,untrust,23.102.47.40,23.102.47.40,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General,allow,1.2.90.25,United States,untrust,108.162.193.234,108.162.193.234,no,53,udp,3,aged-out,dns
 trust,LiveUpdate,allow,1.2.92.26,Ireland,untrust,52.113.205.1,52.113.205.1,no,443,tcp,2,tcp-fin,ms-teams
@@ -7342,7 +7300,6 @@ trust,Internet_General-failed-id,allow,1.2.92.33,Netherlands,untrust,185.33.221.
 trust,Internet_General-failed-id,allow,1.2.89.138,South Africa,untrust,52.98.18.34,52.98.18.34,no,443,tcp,3,tcp-fin,outlook-web-online
 trust,Internet_General,allow,1.2.90.25,United States,untrust,205.251.193.4,205.251.193.4,no,53,udp,3,aged-out,dns
 trust,Internet_General-failed-id,allow,1.2.89.161,United States,untrust,172.217.170.14,172.217.170.14,yes,443,tcp,4,aged-out,google-base
-untrust,interzone-default,deny,103.145.13.11,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,5038,tcp,1,policy-deny,not-applicable
 trust,Internet_Allowed_Apps,allow,1.2.89.155,Netherlands,untrust,34.90.71.103,34.90.71.103,no,443,tcp,1,tcp-fin,traps-management-service
 trust,LiveUpdate,allow,1.2.89.212,United States,untrust,52.188.134.88,52.188.134.88,no,443,tcp,4,tcp-rst-from-client,ssl
 trust,Internet_OIA,allow,1.2.92.10,United States,untrust,192.185.25.243,192.185.25.243,no,80,tcp,4,tcp-rst-from-client,web-browsing
@@ -7422,7 +7379,6 @@ trust,LiveUpdate,allow,1.2.89.155,European Union,untrust,2.17.204.153,2.17.204.1
 trust,LiveUpdate,allow,1.2.89.149,United States,untrust,52.188.134.88,52.188.134.88,no,443,tcp,4,tcp-rst-from-client,ssl
 trust,LiveUpdate,allow,1.2.92.16,United States,untrust,52.114.132.20,52.114.132.20,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General-failed-id,allow,1.2.90.26,United States,untrust,205.251.196.103,205.251.196.103,no,53,udp,3,aged-out,dns
-untrust,interzone-default,deny,206.189.119.18,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,37215,tcp,1,policy-deny,not-applicable
 trust,Internet_General,allow,1.2.89.134,United Arab Emirates,untrust,52.98.95.66,52.98.95.66,no,443,tcp,3,tcp-fin,outlook-web-online
 trust,Internet_General-failed-id,allow,1.2.89.149,United States,untrust,23.54.60.24,23.54.60.24,no,443,tcp,4,tcp-rst-from-client,ssl
 trust,Internet_General-failed-id,allow,1.2.92.15,France,untrust,151.106.5.211,151.106.5.211,yes,80,tcp,4,decrypt-cert-validation,ssl
@@ -7544,7 +7500,6 @@ trust,Internet_OIA,allow,1.2.92.25,Ireland,untrust,20.190.129.16,20.190.129.16,n
 trust,Internet_General,allow,1.2.92.27,South Africa,untrust,52.98.18.2,52.98.18.2,no,443,tcp,3,tcp-rst-from-server,outlook-web-online
 trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,205.251.192.198,205.251.192.198,no,53,udp,3,aged-out,dns
 trust,Internet_General,allow,1.2.89.158,United States,untrust,172.217.170.40,172.217.170.40,yes,443,tcp,4,aged-out,web-browsing
-untrust,interzone-default,deny,103.145.13.99,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,5060,udp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.89.136,Ireland,untrust,40.127.225.252,40.127.225.252,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,172.64.32.116,172.64.32.116,no,53,udp,3,aged-out,dns
 trust,Internet_General,allow,1.2.90.25,United States,untrust,65.22.160.17,65.22.160.17,no,53,udp,3,aged-out,dns
@@ -7555,7 +7510,6 @@ trust,LiveUpdate,allow,1.2.89.140,Ireland,untrust,52.113.205.33,52.113.205.33,no
 trust,LiveUpdate,allow,1.2.89.154,United States,untrust,40.122.160.14,40.122.160.14,no,443,tcp,4,tcp-fin,ssl
 trust,LiveUpdate,allow,1.2.89.130,South Africa,untrust,41.168.9.226,41.168.9.226,no,80,tcp,4,tcp-fin,ms-update
 trust,Internet_General-failed-id,allow,1.2.89.1,United Kingdom,untrust,93.184.220.29,93.184.220.29,no,80,tcp,2,tcp-fin,ocsp
-untrust,interzone-default,deny,185.53.91.35,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,5060,udp,1,policy-deny,not-applicable
 trust,Internet_General-failed-id,allow,1.2.92.33,United States,untrust,23.54.61.109,23.54.61.109,no,80,tcp,4,tcp-rst-from-server,web-browsing
 trust,Internet_OIA,allow,1.2.89.141,Ireland,untrust,20.190.129.129,20.190.129.129,no,443,tcp,2,tcp-rst-from-client,ms-office365-base
 trust,Internet_General,allow,1.2.89.158,United States,untrust,172.217.170.68,172.217.170.68,yes,443,tcp,2,aged-out,google-maps
@@ -7606,7 +7560,6 @@ trust,LiveUpdate,allow,1.2.92.29,United States,untrust,13.88.28.53,13.88.28.53,n
 trust,Internet_General,allow,1.2.92.16,United States,untrust,104.17.232.204,104.17.232.204,yes,443,tcp,4,aged-out,web-browsing
 trust,Internet_OIA,allow,1.2.89.140,United States,untrust,34.227.121.63,34.227.121.63,yes,443,tcp,3,tcp-fin,grammarly
 trust,Internet_General,allow,1.2.89.155,South Africa,untrust,52.98.18.2,52.98.18.2,no,443,tcp,3,tcp-rst-from-client,outlook-web-online
-untrust,In-AnyconnectVPN,allow,103.145.13.138,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,443,tcp,4,tcp-fin,ssl
 trust,LiveUpdate,allow,1.2.92.29,Singapore,untrust,52.109.124.1,52.109.124.1,no,443,tcp,4,tcp-fin,ssl
 trust,LiveUpdate-1,allow,1.2.89.193,Ireland,untrust,52.114.76.35,52.114.76.35,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_General-failed-id,allow,1.2.90.25,Japan,untrust,18.178.234.102,18.178.234.102,no,53,udp,3,aged-out,dns
@@ -7802,7 +7755,6 @@ trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,52.22.42.
 trust,LiveUpdate,allow,1.2.89.155,United Kingdom,untrust,93.184.221.240,93.184.221.240,no,80,tcp,4,tcp-fin,ms-update
 trust,YMA-youtube-url-allow,allow,1.2.92.33,192.168.0.0-192.168.255.255,untrust,192.168.130.170,192.168.130.170,no,445,tcp,1,aged-out,incomplete
 trust,Internet_OIA,allow,1.2.92.25,United States,untrust,152.199.19.161,152.199.19.161,no,443,tcp,1,tcp-fin,windows-azure-base
-untrust,interzone-default,deny,103.145.13.177,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,80,tcp,1,policy-deny,not-applicable
 trust,Internet_General-failed-id,allow,1.2.89.209,South Africa,untrust,52.98.18.34,52.98.18.34,no,443,tcp,3,tcp-fin,outlook-web-online
 trust,Internet_General-failed-id,allow,1.2.90.25,United States,untrust,13.107.24.5,13.107.24.5,no,53,udp,3,aged-out,dns
 trust,Internet_General-failed-id,allow,1.2.90.26,United States,untrust,208.78.71.29,208.78.71.29,no,53,udp,3,aged-out,dns
@@ -7987,7 +7939,6 @@ trust,Internet_General-failed-id,allow,1.2.92.12,European Union,untrust,37.252.1
 trust,LiveUpdate,allow,1.2.92.36,Netherlands,untrust,52.114.75.150,52.114.75.150,no,443,tcp,4,tcp-fin,ssl
 trust,Internet_OIA,allow,1.2.92.18,Ireland,untrust,40.126.1.165,40.126.1.165,no,443,tcp,2,tcp-rst-from-client,ms-office365-base
 trust,LiveUpdate,allow,1.2.92.15,Netherlands,untrust,52.114.75.150,52.114.75.150,no,443,tcp,4,tcp-fin,ssl
-untrust,Blocked_IP_Address_IN,deny,31.163.140.197,South Africa,ra-vpn,41.160.46.146,41.160.46.146,no,23,tcp,1,policy-deny,not-applicable
 trust,LiveUpdate,allow,1.2.92.5,Netherlands,untrust,137.117.228.253,137.117.228.253,no,443,tcp,4,tcp-fin,ssl
 trust,LiveUpdate,allow,1.2.89.152,United Kingdom,untrust,51.11.168.232,51.11.168.232,no,443,tcp,4,tcp-rst-from-client,ssl
 trust,LiveUpdate,allow,1.2.90.19,United States,untrust,52.188.134.88,52.188.134.88,no,443,tcp,4,tcp-fin,ssl
