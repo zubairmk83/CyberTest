@@ -1,13 +1,3 @@
-,,,,Pakistan Website Defacement Data 2006-2020,,,,,
-"Total notifications: 1,351 of which 568 single ip and 783 mass defacements",,,,,,,,,
-,,,,,,,,,
-Legend:,,,,,,,,,
-H - Homepage defacement,,,,,,,,,
-M - Mass defacement (click to view all defacements of this IP),,,,,,,,,
-R - Redefacement (click to view all defacements of this site) ,,,,,,,,,
-L - IP address location,,,,,,,,,
- - Special defacement (special defacements are important websites),,,,,,,,,
-,,,,,,,,,
 Date,Notifier,H,M,R,L,,Domain,OS,View
 5/5/2020,Silent_z3r0,,,R,,,schoolportal.punjab.gov.pk/ind...,Win 2012,mirror
 4/9/2020,GH057_5P3C706,H,M,,,,jom.fja.gov.pk,Linux,mirror
@@ -734,7 +724,7 @@ Date,Notifier,H,M,R,L,,Domain,OS,View
 5/21/2012,WG_Eagle,,,,,,sti.gov.pk/sti1/stiweb/index.php,Linux,mirror
 5/10/2012,Afghan Exploiters Team,,M,,,,admissions.hec.gov.pk/language...,Linux,mirror
 5/7/2012,syhmhfz,,,R,,,www.ipo.gov.pk/patent/Gazette/...,Win 2003,mirror
-5/2/2012,Hmei7,,,,,,npb.gov.pk/i¯donesia.htm,Win 2003,mirror
+5/2/2012,Hmei7,,,,,,npb.gov.pk/iÂ¯donesia.htm,Win 2003,mirror
 4/24/2012,mS_Dz,H,M,,,,www.sindhrelief.gov.pk,Linux,mirror
 4/21/2012,TiGER-M@TE,H,M,,,,ntrc.gov.pk,Win 2008,mirror
 4/18/2012,Indishell,,,,,,chakwalpolice.gov.pk/indishell...,Win 2008,mirror
