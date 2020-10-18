@@ -1,0 +1,623 @@
+---
+title: "Cybersecurity analysis of Web portals"
+author: "[Zubair Khan](https://github.com/zubairmk83)"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 2
+    includes:
+      in_header: my_header.tex
+    latex_engine: xelatex
+    df_print: paged
+    fig_caption: yes
+  word_document: default
+urlcolor: blue
+
+graphics: yes
+header_includes:
+  - \usepackage{fontspec}
+  - \setmainfont{Calibri}
+  
+number_sections: yes
+fig_width: 4
+fig_height: 2
+---
+
+```{r global options, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, echo=FALSE, warning=FALSE, message=FALSE)
+op = function(x, d=2) sprintf(paste0("%1.",d,"f"), x)
+```
+ 
+ 
+\newpage
+
+# INTRODUCTION
+
+This project focuses on the conducting root cause analysis on what factors attract potential hackers to exploit web portal, specifically state or governmet sponsored and respresneted institute. There is a general perception that the weakness of a institute can be reviewed in the way they are represented online. By exploiting such weekneses a hacker reinforces that perception.
+
+
+## Information Gathering
+
+The primary source of information was captured from www.zone-h.org. It's a resource used to catalog successful cyber-attacks on web portals. The information is not properly structured as a data set for analysis. Any subsequent information will have to be first extracted by filtering through current data set and then captured from other sources using Python scripts. The final data set is a composite of all information gathered in this process.   
+
+
+## Project Ovierview
+
+We will attempt to build a reliable data set from the noisy data that was extracted from a web portal. Using the primary data set we will build an additional dataset that will enrich the final dataset and allow us to perform analytics and ML algorithms. The project will flow in the following order 
+
+  + Loading required libraries
+  + Acquisition and analysis of the initial Dataset 
+  + Extracting relevant information for further data gathering
+  + Acquiring resulting data & merging with original dataset
+  + Data preparation by analyzing attributes
+  + Variable selection.
+  + Data exploration & Analysis
+  + Run ML algorithm on final dataset
+  + Splitting the dataset to a training and test dataset
+  + Run another ML algorithm on both training & test datasets
+  + Present result and findings
+
+## Goals
+
+The final objective will be to analyze Hacker's pattern of behavior and identify how targets are picked for attack. We will further attempt to identify alternate course of action that should be considered during the initial planning process in an attempt to decrease probable risk factors. 
+
+\newpage
+
+# METHOD
+
+## Loading Libraries
+
+We will be utilizing a combination of geo map libraries to visualize data on wrold map. All libraries are configured to be installed upon execution with their respective dependencies. 
+
+
+```{r Library, echo=FALSE}
+#Note this process will take a while to load. 
+if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
+if(!require(data.table)) install.packages("data.table", repos = "http://cran.us.r-project.org")
+if(!require(readr)) install.packages("readr", dependencies = TRUE)
+if(!require("ggmap")) install.packages("ggmap", dependencies = TRUE)
+if(!require(maptools)) install.packages("maptools", dependencies = TRUE)
+if(!require(formattable)) install.packages("formattable", dependencies = TRUE)
+if(!require(treemap)) install.packages("treemap", dependencies = TRUE)
+if(!require(qcc)) install.packages("qcc", dependencies = TRUE)
+if(!require(maps)) install.packages("maps", dependencies = TRUE)
+if(!require(factoextra)) install.packages("factoextra", dependencies = TRUE)
+if(!require(randomForest)) install.packages("randomForest", dependencies = TRUE)
+if(!require(party)) install.packages("party", dependencies = TRUE)
+if(!require(kableExtra)) install.packages("kableExtra", repos = "http://cran.us.r-project.org")
+if(!require(imager)) install.packages("imager", dependencies = TRUE)
+
+
+library(imager)
+library(kableExtra)
+library(party)
+library(rpart)
+library(rpart.plot)
+library("factoextra")
+library(randomForest)
+library(tidyr)
+library(dplyr)
+library(readr)
+library(formattable)
+library(stringr)
+library(ggplot2)
+library(maps)
+library("ggmap")
+library(treemap)
+library(maptools)
+library(qcc)
+
+
+```
+
+We will be utilizing maps libraries to visually display geo locations that have been affected. 
+
+## Data Acquizition
+
+The original data set was extracted from the following path:
+
+Path: "http://www.zone-h.org"
+
+The data was extracted in CSV format as **Zone-h.csv** file attached to the Github portal below. The specified CSV contains a Domain column that is further filtered and extracted into a new CSV file **SiteCheck.CSV**. A python script is used to first verify if the respective domain can be resolved to an IP address else it is ignored. Next the script connects to online IP resolution service, using a webscrappting library it attempts to extract additional hosting service information and is eventually saved into the **webscrape.csv** file.
+
+Both dataset were then merged into a Final dataset for further analysis. Any record that did not exist in the second data set was excluded from the final.  
+
+Github: "https://github.com/zubairmk83/CyberTest"
+
+
+```{r Initial data acquizition & analysis, echo=FALSE}
+#Reading Source data from csv
+SiteResult <- read_csv("Zone-h.csv")
+#Quick view of how information is formatted in dataframe
+
+set.seed(1)
+dimensions <- dim(SiteResult)
+kbl(head(SiteResult), caption="Sample Data", booktabs=TRUE) %>% kable_styling(latex_options = c("striped", "hold_position", "scale_down"))
+```
+
+The dataset consists of `r dimensions[1]` rows and `r dimensions[2]` attributes. We notice that although the **H, M, R, L** columns appear promising. We will need to investigate and find out which attributes will contribute towards our analytics and which can be dropped. 
+
+```{r Data Summary, echo=FALSE}
+table <- summary(SiteResult)
+kbl(table, caption = "Initial data Summary statistics", booktabs=TRUE, linesep="") %>% kable_styling(latex_options = c("striped", "hold_position", "scale_down"))
+```
+
+Table 2 depicts that most of the attributes are structured as characters. The Date column is also in character format which needs to be converted. Further analysis is required to be able to identify potential attributes. 
+
+```{r Data Summary 1, echo=FALSE}
+table <- SiteResult %>% summarise_all(n_distinct)
+kbl(table, caption = "Summarizing unique values in all attributes", booktabs=TRUE, linesep="") %>% kable_styling(latex_options = c("striped", "hold_position"))
+```
+
+Reviewing Table 2 we can see that the **L** attribute contains only 1 unique value. This is of no use to us therefore dropping redundant attributes.  
+
+```{r Data Summary 2, echo=FALSE}
+#Reviewing columns that cannot contribute to our analysis
+table <- SiteResult %>% select(H,M,R,L, View) %>% count(H,M,R,L,View)
+kbl(table, caption = "Reviewing attributes that can be used as data factors", booktabs=TRUE, linesep="") %>% kable_styling(latex_options = c("striped", "hold_position"))
+# Column L and View do not provide any significant input to data set, therefore they will be removed
+#Reviewing remaining columns
+#H column indicates Homepage defacement
+#M column indicates Mass defacement
+#R Redefacement
+#there will be 332 entries that will not be considered if we use the attributes H,M,R in our analysis. Saving the remining attributes in a new dataset.
+Result <- SiteResult %>% select(-H,-M,-R,-L, -View) 
+```
+
+We can safely remove the **H, M, R, L, View** attributes from our original dataset as they will not be able to contribute. There are more than 400 records where **H, M & R** attributes are all **NA**. Utilizing these attributes will mean that we will have to drop these records from our dataset. We will continue reviewing remaining attributes.
+
+```{r Data Summary 3, echo=FALSE}
+#Reviewing the Domain column we see that the webaddresses contain subfolder location which is not #required as of now
+table <-Result %>% select(Domain) %>% unique() %>% filter(str_detect(Domain,"/"))
+kbl(head(table,n=5), caption = "Reviewing domain attribute", booktabs=TRUE, linesep="") %>% kable_styling(latex_options = c("striped", "hold_position"))
+
+#Removing trailing information after "/" from Domain Column
+Result <- suppressWarnings(separate(data = Result, col= Domain, into = c("Domains", "Ext"), sep="/", convert = TRUE))
+
+#Removing Ext, Domain and S No. attributes as they will no longer be required. 
+Result <- Result %>% select(-Ext, -"S No.")
+```
+
+Table 5 represents Domain column. The values are saved as a string format that needs to be split. This can be done by scanning through the string and splitting the columns using on the first occurrence of  "**/**" symbol. 
+
+
+```{r Exporting Domains, echo=FALSE}
+table <-Result %>% select(Domains) %>% unique()
+kbl(head(table,n=5), caption = "Domain after fileration", booktabs=TRUE, linesep="") %>% kable_styling(latex_options = c("striped", "hold_position"))
+
+#result looks a better. exporting the Domain list to see if we can get further information
+write.csv(Result$Domains, file = "SiteCheck.csv", row.names = FALSE)
+```
+
+The filtered Domain attribute is extracted to a **SiteCheck.csv** file for further processing. 
+
+## Further Data Gathering
+
+The filtered domain attribute saved in **SiteCheck.csv** is used as a data source to be first evaluated if it can be resolved. The evaluation process involves contacting a DNS service provider like "www.google.com" to verify if the DNS address can be matched to an IP address. This is important as all forms of online communication and traceability is only possible if we can identify the IP address. The result is saved in **SiteResult.csv**.
+
+Once we can match the IP address of respective domain we will utilize webscraping libraries to automate and extract further information like geolocation, ISP and hosting services etc. The entire flow of the script can be better understood in the following diagram. 
+
+
+```{r Webscraping flowchart, echo=FALSE, fig.height=4, fig.width=4, fig.cap="Webscraping flow chart"}
+#there is a problem with the DiagrammeR library exporting to PDF. therefore I have exported the #image that it has generated to jpeg and have loaded it in here. 
+pPath <-  load.image('Flowchart.jpeg')
+#chart <- load.image(pPath)
+plot(pPath, axes=0)
+```
+
+
+## Merging Datasets
+
+The resulting data acquired is first filtered to remove unneeded attributes and then merged with the original data set to create our Final dataset. Any source data that does not have trailing data in our second dataset is removed from our analysis. 
+
+```{r Merging Data1, echo=FALSE}
+#Importing Site data from CSV file
+ISPResult <- read.csv(file = "webscrape.csv")
+
+#Checking duplicate information
+
+kbl(head(ISPResult[duplicated(ISPResult$Site),]), caption="Duplicate Rows", booktabs=TRUE) %>% kable_styling(latex_options = c("striped", "hold_position", "scale_down"))
+
+
+#duplicated(ISPResult$Site) %>% sum()
+#only one duplicate. examinging the duplicat rows
+
+#removing duplicate information
+head(ISPResult, n=2)
+ISPResult <- ISPResult[-c(2),]
+kbl((ISPResult %>% summarise_all(n_distinct)), caption="Summary of imported dataset", booktabs=TRUE) %>% kable_styling(latex_options = c("striped", "hold_position", "scale_down"))
+
+
+#Reviewing ISP dataset to drop columns that do not contribute to dataset
+ISPResult %>% select(Services, Assignment, Blacklist) %>% unique()
+#Removing columns not needed
+ISPResult <- ISPResult %>% select(-a, -Services, -Assignment, -Blacklist)
+
+
+ISPResult %>% select(IP.Address, IP.Decimel, ASN, Postal.Code)
+#we do not require IP.Decimal, Postal.code. Dropping respective columns
+ISPResult <- ISPResult %>% select(-IP.Decimel, -Postal.Code)
+
+#examining latitude and longitude column
+ISPResult %>% select(Latitude, Longitude) %>% head(n=10)
+
+# we can exclude data after Â symbol for both columns.
+ISPResult <- suppressWarnings(separate(data = ISPResult, col= Latitude, into = c("Lat"), sep="Â", convert = TRUE))
+ISPResult <- suppressWarnings(separate(data = ISPResult, col= Longitude, into = c("Lon"), sep="Â", convert = TRUE))
+
+#Merging both datasets to a Final dataset
+Final <- merge(Result, ISPResult, by.x = "Domains", by.y = "Site")
+
+#Doing a bit of house cleaning
+remove(Result, ISPResult,SiteResult)
+
+```
+
+The remaining dataset is merged with the source data set.  
+
+## Data Preperation
+
+In this section we will be filtering and cleaning the Final data set. Converting relevant attributes to needed format and removing attributes that will not be required. 
+
+```{r Data preperation, echo=FALSE}
+#Examining the Final dataset for further cleaning
+Summarized <- Final %>% summarise_all(n_distinct)
+kbl(Summarized, caption="Merged Dataset", booktabs=TRUE) %>% kable_styling(latex_options = c("striped", "hold_position", "scale_down"))
+```
+
+The Dates column is converted into its respective format. Any records that do not have an IP address are removed and the **Notifier** attribute that represents Hacker name is cleared of any anomaly data that was captured during initial import. Additionally, the first letter of **Notifier** attribute is converted to lower case to clear duplicate name entries.   
+
+```{r Data preperation 1, echo=FALSE}
+
+#Formatting the Date column
+Final$Dates <- as.Date(Final$Date, "%m/%d/%Y")
+#Remving the old Date column 
+Final <- Final %>% select(-Date)
+
+#count of Sites no longer active after hack. 
+#Final %>% filter(str_length(IP.Address) < 2) %>% nrow()
+
+#Removing Sites that have been decomissioned.
+Final <- Final %>% filter(str_length(IP.Address) > 2)
+
+
+#Final %>% group_by(Notifier) %>% arrange(Notifier) %>% select(Notifier) %>% unique() 
+#Remove ./ from some names. these are improper data capture
+Final %>% group_by(Notifier) %>% filter(str_detect(Notifier, "./"))  
+Final$Notifier <-  str_replace(Final$Notifier,"./","")  
+
+
+#Final %>% summarise_all(n_distinct)
+#convert character to lowercase to match multiple variance
+Final$Notifier <- tolower(Final$Notifier)
+
+#Final %>% summarise_all(n_distinct)
+#the number of Hackers under the Notifier column has decreased. This is because they were registered in duplicate as the 1st character was either capital or small
+kbl(head(Final, n=5), caption="Sample of Final Dataset", booktabs=TRUE) %>% kable_styling(latex_options = c("striped", "hold_position", "scale_down"))
+
+```
+
+
+
+## Variable Selection
+
+```{r Variable selection, echo=FALSE}
+Summarized <- Final %>% summarise_all(n_distinct)
+```
+
+While reviewing the remaining variables we can so far summarize the following:
+
++ Total number of hackers in the dataset is `r Summarized$Notifier` . 
++ Total number of web portal affected are `r Summarized$Domains`. 
++ Total number of unique IP addresses are `r Summarized$IP.Address`. 
++ Total countries in the dataset are `r Summarized$Country` distributed within `r Summarized$Continent` continents.
++ Total variations of Operating system are `r Summarized$OS`.
++ Total number of records are `r nrow(Final)`.
+
+
+
+## Data Exploration
+
+We will try to visualize the finalized attributes to identify pattern. The below map displays overall distribution of attacks captured in our dataset. 
+
+```{r Data Exploration 1, echo=FALSE, fig.height=3, fig.width=5, fig.cap="Hackers attack distribution"}
+#Lets visualize the information to view the hackers attack pattern
+#Viewing the overall attacks captured in the database
+mapper <- Final %>% select(Lon,Lat) %>% count(Lon,Lat) 
+mapWorld <- borders("world", colour="gray50", fill="gray50")
+mp <- ggplot() +   mapWorld
+mp <- mp+ geom_point(aes(x=mapper$Lon, y=mapper$Lat) ,color="blue", size=2, alpha=0.4 )
+mp
+#we observer the the number of attacks are concentrated to a few specific region
+```
+
+We notice that the attacks are focused on 3 regions. It is still unclear as to the reason of distribution. We will start by filtering result of on top 5 Hackers based on their number of attacks recorded.   
+
+
+```{r Data Exploration 2, echo=FALSE, fig.height=3, fig.width=5, fig.cap="Top 5 Hacker attack distribution"}
+#Selecting the 1st notifier we will try to detect pattern of behavior
+top <- count(Final, Notifier) %>% arrange(desc(n)) %>% top_n(5) %>% select(Notifier)
+
+remove(mp)
+mapper <- Final %>% group_by(Notifier) %>% filter(Notifier %in% top$Notifier) %>%
+  select(Notifier,Lon,Lat) 
+mapWorld <- borders("world", colour="gray50", fill="gray50")
+mp <- ggplot() +   mapWorld
+mp <- mp+ geom_point(aes(x=mapper$Lon, y=mapper$Lat) ,color="blue", size=2, alpha=0.4 ) 
+mp
+
+```
+
+There is a clear indication on 3 cluster formation based on region. We will now attempt to identify this cluster's contributing attribute or attributes.
+
+
+```{r Data exploration 3, echo=FALSE}
+top <- count(Final, Notifier) %>% arrange(desc(n)) %>% top_n(1) %>% select(Notifier)
+table <- Final %>% group_by(Notifier) %>% filter(Notifier==top) %>% count(ISP) %>% arrange(desc(n))
+kbl(head(table, n=5), caption="Top hacker dataset", booktabs=TRUE) %>% kable_styling(latex_options = c("striped", "hold_position"))
+```
+
+From the above table we notice that the top recorded hacker in this dataset has the highest contribution towards a specific ISP.  
+
+```{r Data exploration 4, echo=FALSE}
+#Isolating the highest attack count top hacker and quering total attacks received by ISP 
+table <- Final %>% group_by(ISP) %>% filter(ISP == " OVH SAS") %>% distinct(Notifier)
+kbl(head(table, n=5), caption="Filtered ISP dataset", booktabs=TRUE) %>% kable_styling(latex_options = c("striped", "hold_position"))
+```
+
+Filtering the dataset based on selected ISP from table **Top hacker dataset** we observe that this ISP has been the victim of `r nrow(table)` successful hacks.    
+
+```{r Pareto analysis 1, echo=FALSE, fig.height=3, fig.width=5, fig.cap="Attack distribution"}
+#Global Hacking distribution
+
+topResult <- Final  %>% group_by(Notifier) %>% count(Notifier) %>% arrange(desc(n)) 
+topResult$cumsum <-  cumsum(topResult$n)
+topResult$obs <- 1:nrow(topResult)  
+
+ggplot(topResult, aes(x=obs)) +
+  geom_bar(aes(y=n), fill="blue", stat="identity") +
+  geom_point(aes(y=cumsum)) +
+  geom_path(aes(y=cumsum, group=1))
+
+#Initial obversation states that majority of result is focused on below 100 records
+```
+
+Further analyzing the distribution of attacks we notice that majority of attacked are contributions of the first top 100 hackers arranged in descending.
+
+```{r Pareto analysis 2,echo=FALSE, fig.height=4, fig.width=5, results='hide' ,fig.cap="Top 30 attack distributions" }
+#using pareto library for better visual
+
+Pareto <- head(topResult$n,n=30)
+names(Pareto) = head(topResult$obs,n=30)
+pareto.chart(Pareto,cumperc=seq(0,100, by=10), main="Pareto Analysis", col = rainbow(50),ylab="Count", ylab2="Freq"  )
+
+#Eventhough chart depicts that 80% of attacks came from less then 20 hackers we will still keep our data refined top 30 hackers
+```
+
+Analyzing the pareto chart based on an 80/20 distribution indicates that 80% of data contributions are from less than top 20 hackers. For an even distribution of data, we will select the top 30 hackers in our proceeding analysis. Based on our finding from the above pareto analysis we can refine our world map to represent top 30 hackers.
+
+```{r top 30 hackers distribution, echo=FALSE, fig.height=3, fig.width=5, fig.cap="Analysing potential clusters"}
+top <- count(Final, Notifier) %>% arrange(desc(n)) %>% top_n(30) %>% select(Notifier)
+remove(mp)
+mapper <- Final %>% group_by(Notifier) %>% filter(Notifier %in% top$Notifier) %>% select(Notifier,Lon,Lat) 
+mapWorld <- borders("world", colour="gray50", fill="gray50")
+mp <- ggplot() +   mapWorld
+mp <- mp+ geom_point(aes(x=mapper$Lon, y=mapper$Lat) ,color="blue", size=2, alpha=0.4 ) 
+mp
+#the three cluster matches the initial assesment
+```
+
+
+
+
+```{r Filtering OS, echo=FALSE}
+#focusing on Operating systems attacked
+#Final$OS %>% unique() 
+OSCount <- Final$OS %>% unique() %>% length()
+#out of the 12 Operating system attacked. there are only 3 that are prefered by top 30 Hackers.
+#this could also mean that the respective region only supports certain OS. Further clarification is required.
+
+
+top <- Final %>% group_by(OS) %>% count(Notifier,OS,Lat,Lon) %>% arrange(desc(n)) %>% head(n=30)
+TOSCount <- Final %>%  filter(Final$Notifier %in% top$Notifier) %>% count(OS) 
+#Two out of the 3 Operation system match our assesment
+```
+
+Focusing our analysis on Operating system we observer that there are a total of `r OSCount` operating system represented in the dataset. Among these 8 are the ones exploited by top 30 hackers. Looking at distribution of Operating system on world map 
+
+```{r Operating system 1, echo=FALSE, fig.height=4, fig.width=6, fig.cap="OS distribution"}
+mapWorld <- borders("world", colour="gray50", fill="gray50")
+Final %>% group_by(OS) %>% count(OS, Lon,Lat)  %>% 
+  ggplot() + mapWorld +
+  geom_point(aes(x=Lon, y=Lat ,color=OS)) +
+  theme(legend.position = "none" , axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+  facet_wrap(~OS)
+#We observer that the Linux, win2000, win2003, win2012 match our 3 cluster but this does not coencide with our assesment. Operating system may not be the deciding factor that attracts hackers.
+
+```
+
+We observe that the **Linux, win 2003 & win 2012** Operating systems have a saturated distribution from the rest. The **Linux** term used here represents custom Linux distributions that are not identifiable from the web scrap data source. The **unknown** Operating system can represent appliance that is specifically build to host web portals. It is surprising to see that there are a number of Microsoft based operating systems that are no longer supported but are still in use.   
+
+```{r Operating System 2, echo=FALSE, fig.height=4, fig.width=6, fig.cap="OS targeted by top 30 hackers"}
+Final %>% filter(Notifier %in% top$Notifier) %>% group_by(OS) %>% count(OS, Lon,Lat) %>%
+  ggplot() + mapWorld +
+  geom_point(aes(x=Lon, y=Lat ,color=OS))+ 
+  theme(legend.position = "none" , axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+  facet_wrap(~OS)
+#we observer that Linux and win2012 still follow our assesment patern for top 30 hacker interest
+```
+
+Reviewing the attack distribution based on country by using pareto analysis we find that 80% of attacks are concentrated in **Pakistan** & **USA**.  
+
+```{r Pareto analysis OS, echo=FALSE, results="hide", fig.height=4, fig.width=5, fig.cap="Pareto analysis of OS"}
+#Reviewing countries affected by attacks
+input <- Final %>% count(Country) %>% arrange(desc(n))
+
+Pareto <-  input$n
+names(Pareto) = input$Country
+pareto.chart(Pareto,cumperc=seq(0,100, by=20), main="Pareto Analysis", col = rainbow(50),ylab="Count", ylab2="Freq"  )
+
+#Examining the result we can deduce that 80% of web content is hosted in Pakistan and US. For better saturation we will include top 3 countries.
+#Focusing on the top 3 countries 
+input <- head(input, n=3)
+```
+
+This matches out initial cluster assessment but still leaves the primary question unanswered. Which attribute has the most contribution towards the creation of the below represented 3 clusters.
+
+```{r Cluster map, echo=FALSE, fig.height=3, fig.width=5, fig.cap="3 Clusters identification"}
+remove(mp)
+mapper <- Final %>% group_by(OS) %>% select(OS,Lon,Lat) %>% count(OS, Lon,Lat) 
+mapWorld <- borders("world", colour="gray50", fill="gray50")
+mp <- ggplot() +   mapWorld
+mp <- mp + #geom_point(aes(x=mapper$Lon, y=mapper$Lat ,color=mapper$OS), size=2, alpha=0.7 ) +
+  stat_density2d(aes(x = mapper$Lon, y = mapper$Lat), size = 0.3) +
+  scale_fill_gradient(low = "light blue", high= "dark blue") 
+mp
+```
+
+
+
+
+## Kmeans Algorithm
+
+We will be utilizing Kmeans machine learning algorithm to narrow down the contributing attributes. In order to achieve this, we will be converting the **Notifier, OS, ISP & Country** attributes to factor forms by first sequencing and labeling them in descending order of occurrence and then replacing the allocated labels to their respective sequence. The code that will carry out this activity is given below. 
+
+Code for this process is represented below
+
+
+```{r Kmeans preperation, echo=TRUE}
+#Arranging Hackers in decending order
+a <- Final %>% group_by(Notifier) %>% count(Notifier) %>% arrange(desc(n)) %>% select(Notifier)
+#creating a sequence that is of lenght a
+b <- seq.int(nrow(a))
+#creating a dataframe and combining both entries
+Final1 <- data.frame(a,Hacker = b)
+#Joining our dataframe to every occurance in the initial dataset. Sort of how vlookup works in excel. 
+Final <- left_join(Final,Final1, by="Notifier")
+
+
+#repeating the process for remaining attributes.
+a <- Final %>% group_by(OS) %>% count(OS) %>% arrange(desc(n)) %>% select(OS)
+b <- seq.int(nrow(a))
+Final1 <- data.frame(a,OpSys = b)
+Final <- left_join(Final,Final1, by="OS")
+
+a <- Final %>% group_by(ISP) %>% count(ISP) %>% arrange(desc(ISP)) %>% select(ISP)
+b <- seq.int(nrow(a))
+Final1 <- data.frame(a,ISPs = b)
+Final <- left_join(Final,Final1, by="ISP")
+
+a <- Final %>% group_by(Country) %>% count(Country) %>% arrange(desc(n)) %>% select(Country)
+b <- seq.int(nrow(a))
+Final1 <- data.frame(a,Ctry = b)
+Final <- left_join(Final,Final1, by="Country")
+remove(Final1,a,b)
+```
+
+Once that is done, we will execute the Kmeans ML algorithm and represent it in a graphical format.
+
+```{r Kmeans ML, echo=FALSE, fig.height=4, fig.width=6, fig.cap="Kmeans visual representation"}
+#ML Kmeans - Selecting the Hacker,ISPs, Ctry, OpSys column to identify contributers to Kmean clustering algoritm
+Final1 <- Final %>% select(Hacker, OpSys, ISPs, Ctry)
+results <- kmeans(Final1, 3)
+plot(Final1[c("Hacker", "ISPs", "Ctry", "OpSys")], col=results$cluster)
+#We can conclude from graph that the deciding factor for Hackers to pick a relevant targit is the ISP first, then the country hosted and lastly the OS. 
+```
+
+
+Using the chart above we can conclude that the primary approach a hacker takes is not what is generally perceived. Based on our analysis, a hacker targets a potential ISP for weakness. Once identified, they will then move to affecting all available hosted services in that specific ISP. Their selection of potential target least involves Operating system exploitation or a hosting country. The list of portals in the domains attribute are potential victims to a flawed infrastructure. This is opposite to what the general approach when we plan on hosting web portal. The general planning that is involved while making key decisions on creating web portals is as follows:
+
+  + Finalizing on the content type (static or dynamic).
+  + Selecting the easiest language this can be programmed in or whose expertise is readily available.
+  + Selecting the easiest OS that it will be hosted on. 
+  + Reviewing the cost of hosting the portal.
+  + Selecting the cheapest one that meets management requirement while keeping operational cost as low as possible.
+  
+It is generally perceived that the ISP is responsible for the security aspect of the web portals and in most cases they are as stipulated in the terms and conditions agreements. But having said that, the impact a defacement has does not affect the image of the ISP but rather the web portal owner. Due diligence is needed especially when such online portals represent an institute that reflects service presented by a state or country. Delivering services in a secured and reliable manner is more important and should be considered at top priority when making such decisions.
+
+
+## Data Split
+
+For our next analysis we will approach the problem by proposing an insight into the current planning behaviors and what should be the proposed method to approach. We will be using the **decision tree algorithm** on our training and test datasets. We will also exclude the Hacker attribute from the dataset as the effect a hacker has is a byproduct of a cybersecurity weakness.
+
+
+```{r Data Split, echo=TRUE}
+remove(Final1)
+Final1 <- Final %>% select(OpSys, ISPs, Ctry)
+Final1$OpSys <- as.factor(Final1$OpSys)
+#Splitting the dataset to a training and test data set at 80:20 ration
+pd <- sample(2, nrow(Final1), replace = TRUE, prob = c(0.8,0.2))
+train <- Final1[pd==1,]
+test <- Final1[pd==2,]
+```
+
+We will be sticking with the standard 80 / 20 ratio where 80% of the data is used in our training algorithm and the 20% remaining data is used to test our hypothesis.
+
+
+## Decision Tree Algorithm
+
+Using the remaining 3 attributes we will use Decision tree method to propose a better selection approach to our planning phase. We know that the primary three elements in building a web portal are:
+
++ Finalizing content
++ Selecting programing language
++ Selecting hosting platform
+
+The dataset does not contain information on the first two attributes but has information on operating system its hosted on. Using **OpSys** attribute as factorial variable we will run decision tree analysis on our remaining dataset.
+
+
+```{r Decision tree, echo=TRUE}
+#building a Decision tree  
+tree <- ctree(OpSys~., data=train, controls = ctree_control(mincriterion = 0.9, minsplit = 300) )
+#there are a total of 19 nodes in this tree. the tree is set to 90 % confidence level and split is kept at 300
+#this diagram is basically upside down with root at the top and leaves at the bottom. 
+#checking the probability distribution of our dataset we observer that all variations belong to top 4 classes
+#of OpSys
+predict(tree, test)
+```
+
+Using the decision tree method, we observer that our prediction is only limited to the top 4 classes out of a total of 12. The **Ctry** attribute is at the top of the tree which depicts it as a root node. We will read the tree in reverse since lower numbers portray higher risk factory. We will follow the decision tree in our planning phase focusing on higher numbers when choosing branches.
+
+
+
+```{r Decision tree 3, echo=FALSE, fig.cap="Decision tree analysis"}
+#Building a decision tree 
+tree1 <- rpart(OpSys~., train)
+rpart.plot(tree1, extra = 3)
+rules <- rpart.rules(tree1)
+
+#You can enable the below code if You want a tabular view of the Decision tree chart.
+#kbl(rules, caption="Filtered ISP dataset", booktabs=TRUE) %>% kable_styling(latex_options = c("striped", "hold_position", "scale_down"))
+```
+
+As an observation if we refer to the **Country Pareto Chart** and we pick **Germany** for hosting our web portal, as it is not the top two countries we satisfy the **root** condition and move to the next observation towards the left. On our next node our initial choice is still higher than the prescribed condition, therefore we move to the left again and so forth.
+
+
+```{r ML result, echo=TRUE}
+#Misclassification error for "train" data
+tab <- table(predict(tree), train$OpSys)
+trainResult <- 1-sum(diag(tab))/sum(tab)
+#misclassification error is about 33% based on training data and is 
+#focused on top 4 used operating systems
+
+
+testPrediction <- predict(tree, newdata=test)
+tab <- table(testPrediction, test$OpSys)
+testResult <- 1-sum(diag(tab))/sum(tab)
+#misclassification error is about 28% based on test data and is also 
+#focused on top 4 used operating systems
+```
+
+
+## Results
+
+Finally, we use the train dataset to calculate the misclassification error and run it against our test dataset. We observe the training dataset contains `r nrow(train)` observations and works with **77%** accuracy. While the test dataset contains `r nrow(test)` observations and works with **81%** accuracy. Although the dataset is quite limited, but we can safely state that following the specified model of approach in our decision making process we can lower the potential risk factor of our web portal by more then 70%. 
+
+\newpage
+
+# CONCLUSION
+
+Cybersecurity is a broad spectrum and has its own limitations. The most prominent limitation that is observed is of a personal image status rather than of technical nature. The willingness of an institute to be transparent and open in such scenarios can empower cyber defense bodies to build better frameworks. It’s a process of collecting factorial data, cross validating it and eventually identifying emerging patterns from it. 
+
+The construct of this report was both challenging and insightful. Consolidating such information into a collective dataset where hosting services are categorized and graded based on the strength of their cybersecurity framework and that information is available to the masses will be the next phase of this project.
+
